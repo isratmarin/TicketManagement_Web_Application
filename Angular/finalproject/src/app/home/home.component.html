@@ -1,0 +1,100 @@
+
+
+<header class="p-3 bg-dark text-white fixed-top">
+  <div class="container">
+    <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+
+
+      <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+        <li><a href="/Home" class="nav-link px-2 text-secondary">Home</a></li>
+        <li><a href="/About" class="nav-link px-2 text-white">About</a></li>
+        <li><a href="/Searchflight" class="nav-link px-2 text-white">Search</a></li>
+        <li><a href="/Bookflight" class="nav-link px-2 text-white">Book</a></li>
+        <li><a href="#" class="nav-link px-2 text-white">About</a></li>
+        <li><a href="/Package" class="nav-link px-2 text-white">Our Package</a></li>
+      </ul>
+
+      <div class="text-end me-8">
+        <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+          <li><a href="/Login" class="nav-link px-2 text-white">Login</a></li>
+          <li><a href="/Registration" class="nav-link px-2 text-white">Sign up</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</header>
+
+
+
+<div class="backgroundaddimage">
+  <div class="radio-group">
+    <div>
+      <input type="radio" id="one_way" name="trip_type" (click)="searchdate()">
+      <label for="one_way">One way</label>
+    </div>
+
+    <div>
+      <input type="radio" id="round_trip" name="trip_type" (click)="ReturningDate()">
+      <label for="round_trip">Round trip</label>
+    </div>
+  </div>
+  <div class="form-container">
+    <form>
+    
+
+      <div class="mt-3">
+        <label for="from_city" class="form-label">From City:</label>
+        <select [(ngModel)]="from_city" id="from_city" name="from_city"  (change)="searchdate()">
+          <option *ngFor="let s of fromcitylist" [value]="s">{{s}}</option>
+        </select></div>
+        
+        <div class="mt-3">
+          <label for="to_city" class="form-label">To City:</label>
+          <select [(ngModel)]="to_city" id="to_city" name="to_city" (change)="searchdate()">
+            <option *ngFor="let s of tocityList" [value]="s">{{s}}</option>
+          </select></div>
+
+
+      <label class="form-label" for="flying_date">Flying Date</label>
+      <input type="text" id="flying_date" name="flying_date" [(ngModel)]="flying_date">
+
+      <label class="form-label" for="return_date">Return Date</label>
+      <input type="text" id="return_date" name="return_date" [(ngModel)]="return_date">
+      <br>
+      <button type="submit" (click)="searchid()">Search</button>
+    </form>
+  </div>
+</div>
+
+
+
+<div class="container mt-5">
+  <div class="row">
+    <div *ngFor="let x of flight;" class="card col-4">
+      <img src="{{x.photo}}" class="card-img-top" alt="..." height="250px">
+      <div class="card-body">
+        <button class=" btn btn-warning" (click)="go(x.id)">Go</button>
+        <h5 class="card-title">{{x.name}}</h5>
+        <span>Number:{{x.number}}</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+<footer class="py-5"></footer>
+<div class="d-flex flex-column flex-sm-row justify-content-between py-4 my-4 border-top">
+  <div class="container">
+    <p>© 2023 Company, Inc. All rights reserved.</p>
+
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14607.605510543724!2d90.38426189999998!3d23.75089605!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755b8bcd681372b%3A0x5c2b8755e4327004!2sBashundhara%20City%20Shopping%20Complex!5e0!3m2!1sen!2sbd!4v1689597072401!5m2!1sen!2sbd"
+      width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade"></iframe>
+  </div>
+
+</div>
